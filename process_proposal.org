@@ -1,5 +1,5 @@
-#+Revision: 1
-#+Audience: LEWGI
+#+Revision: 2
+#+Audience: LEWGI, SG1, SG16
 #+Status: 
 #+Group: WG21
 #+LATEX_CLASS: article
@@ -8,11 +8,18 @@
 #+LATEX_HEADER:\usepackage[margin=0.8in]{geometry}
 #+LATEX_HEADER:\usepackage{parskip}
 
-#+Title: P1750R1 A Proposal to Add Process Management to the C++ Standard Library
+#+Title: P1750R2 A Proposal to Add Process Management to the C++ Standard Library
 #+Author: Klemens Morgenstern, Jeff Garland, Elias Kosunen, Fatih Bakir
 #+Email: jeff@crystalclearsoftware.com
 
+* Introduction
+
+The creation and management of processes is a widely used and fundamental tool in computing systems.  Unfortunately, C++ does not have a portable way to create and manage processes. Most other language standard libraries support facilities to wrap the complexities in support of application programmers. The functionality has been on [[https://docs.google.com/document/d/1AC3vkOgFezPaeSZO-fvxgwzEIabw8I_seE7yFG_16Bk/preview][standard library wish lists]] going back to 2007. This proposal is based on [[https://www.boost.org/libs/process][boost.process]] which provides cross-platform implementation experience.
+
 * Revision History
+** R2
++   Reorganized sections
+
 ** R1
 +   Added a section of review questions and dicussion to record committee discussions - see Committee Questions and Discussions
 +   LEWGI feedback: removed ~environment~ class
@@ -35,10 +42,6 @@
 
 ** R0
 Initial release.
-
-* Introduction
-
-The creation and management of processes is a widely used and fundamental tool in computing systems.  Unfortunately, C++ does not have a portable way to create and manage processes. Most other language standard libraries support facilities to wrap the complexities in support of application programmers. The functionality has been on [[https://docs.google.com/document/d/1AC3vkOgFezPaeSZO-fvxgwzEIabw8I_seE7yFG_16Bk/preview][standard library wish lists]] going back to 2007. This proposal is based on [[https://www.boost.org/libs/process][boost.process]] which provides cross-platform implementation experience.
 
 * Motivation and Scope
 
@@ -327,7 +330,7 @@ Some key points included:
 
 So, at this time, the proposal will say nothing.
 
-* Design Discussion & Examples
+* Design Discussion and Examples
 ** Concept ~process_launcher~
 
 The process launcher is a class that implements the actual launch of a process. In most cases there are different versions to do this. On Linux for example, ~vfork~ can be required as an alternative for fork on low-memory devices.
